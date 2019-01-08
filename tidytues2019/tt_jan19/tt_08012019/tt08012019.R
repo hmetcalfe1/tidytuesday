@@ -1,5 +1,10 @@
 #tidytuesday 08012019
 library(tidyverse)
 
-importfile<-"IMDb_Economist_tv_ratings.csv"
+importfile<-"tidytues2019/tt_jan19/tt_08012019/IMDb_Economist_tv_ratings.csv"
 tvdata <- read_csv(importfile)
+tvdata
+
+ggplot(data = tvdata) +
+  geom_point(mapping = aes(x=date,y=av_rating))
+    
