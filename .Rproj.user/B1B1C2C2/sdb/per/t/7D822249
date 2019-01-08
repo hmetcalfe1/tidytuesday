@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "# TV's golden age is real\n\nThis week's [**DATA**](data/2019/2019-01-08/IMDb_Economist_tv_ratings.csv) is curated courtesy of [Sara Stoudt](https://twitter.com/sastoudt) and comes from the recently created **The Economist** [Data GitHub](https://github.com/TheEconomist)!\n\nTheir November 24th article on [TV ratings](https://www.economist.com/graphic-detail/2018/11/24/tvs-golden-age-is-real) covers 'all TV dramas ... via IMDb from 1990 to 2018'.\n\n# Data Dictionary\n\nData dictionary courtesy of `skimr` and `kable`, with credit to [Phillip Knor](https://twitter.com/philip_khor) for the [pull-request](https://github.com/rfordatascience/tidytuesday/tree/master/community_resources/code_chunks).\n\n|type      |variable     |missing |complete |n    |min        |max        |\n|:---------|:------------|:-------|:--------|:----|:----------|:----------|\n|character |genres       |0       |2266     |2266 |5          |25         |\n|character |title        |0       |2266     |2266 |1          |51         |\n|character |titleId      |0       |2266     |2266 |9          |9          |\n|Date      |date         |0       |2266     |2266 |1990-01-03 |2018-10-10 |\n|integer   |seasonNumber |0       |2266     |2266 |NA         |NA         |\n|numeric   |av_rating    |0       |2266     |2266 |NA         |NA         |\n|numeric   |share        |0       |2266     |2266 |NA         |NA         |\n\n\n",
+    "created" : 1546967686226.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3411658568",
+    "id" : "7D822249",
+    "lastKnownWriteTime" : 1546965334,
+    "last_content_update" : 1546965334,
+    "path" : "~/tidytuesday/tidytues2019/tt_jan19/tt_08012019/readme.md",
+    "project_path" : "tidytues2019/tt_jan19/tt_08012019/readme.md",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "markdown"
+}
