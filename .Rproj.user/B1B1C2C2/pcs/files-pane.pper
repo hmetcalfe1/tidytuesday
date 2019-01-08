@@ -1,0 +1,9 @@
+{
+    "path" : "~/tidytuesday",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}
