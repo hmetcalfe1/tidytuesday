@@ -3,7 +3,7 @@ rm(list=ls())
 library(tidyverse)
 
 importfile<-"tidytues2019/tt_jan19/tt_29012019/clean_cheese.csv"
-exportfile<-"tidytues2019/tt_jan19/tt_08012019/29012019.pdf"
+exportfile<-"tidytues2019/tt_jan19/tt_29012019/29012019.png"
 
 chdata <- read_csv(importfile)
 
