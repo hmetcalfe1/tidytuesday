@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#tidytuesday 29012019\nrm(list=ls())\nlibrary(tidyverse)\n\nimportfile<-\"tidytues2019/tt_jan19/tt_29012019/clean_cheese.csv\"\nexportfile<-\"tidytues2019/tt_jan19/tt_29012019/29012019.png\"\n\nchdata <- read_csv(importfile)\n\nchdata<-mutate(chdata,\n       OtherCheese=rowSums(chdata[6:11],na.rm = TRUE)\n       )\n\nggplot(data = chdata,aes(x=Year)) +\n  geom_line(mapping = aes(y=Cheddar), colour=\"deepskyblue3\")+\n  geom_line(mapping = aes(y=Mozzarella), colour=\"deeppink3\")+\n  geom_line(mapping = aes(y=`American Other`), colour=\"yellow3\")+\n  geom_line(mapping = aes(y=`Italian other`), colour=\"forestgreen\")+\n  geom_line(mapping = aes(y=OtherCheese), colour=\"chocolate3\")+\n  ylab(\"Per capita consumption ofcheese / pounds\")+\n  geom_text(aes(x = 2011, y = 11.5, label = \"Mozzarella\"), color = \"deeppink3\") + \n  geom_text(aes(x = 2011, y = 9, label = \"Cheddar\"), color = \"deepskyblue3\")+\n  geom_text(aes(x = 2011, y = 4.5, label = \"Other American Type Cheeses\"), color = \"yellow3\") + \n  geom_text(aes(x = 2011, y = 2, label = \"Other Italian Type Cheeses\"), color = \"forestgreen\")+\n  geom_text(aes(x = 2011, y = 6.5, label = \"Other Cheeses\"), color = \"chocolate3\")+\n  theme_bw()\n\nggsave(exportfile)\n",
+    "created" : 1548756189423.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3644732489",
+    "id" : "472378FD",
+    "lastKnownWriteTime" : 1548762885,
+    "last_content_update" : 1548762885719,
+    "path" : "~/tidytuesday/tidytues2019/tt_jan19/tt_29012019/tt29012019.R",
+    "project_path" : "tidytues2019/tt_jan19/tt_29012019/tt29012019.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

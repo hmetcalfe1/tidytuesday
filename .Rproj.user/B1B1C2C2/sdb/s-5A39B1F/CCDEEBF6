@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#tidytuesday 12032019\n\n# Load Packages -----------------------------------------------------------\nlibrary(tidyverse)\nlibrary(reshape2)\nlibrary(gridExtra)\n\n\n# Read in data ------------------------------------------------------------\n\nimportfile<-\"tidytues2019/tt_mar19/tt_12032019/board_games.csv\"\n\nbgdata <- read_csv(importfile)\n\nbgcategories<-str_split(bgdata$category,\",\")%>%\n  unlist()%>%\n  unique()\n\n#Create new columns for each category  ------------------------------------------------------------------------\nfor (i in 1:length(bgcategories)){\n  categoryis<-bgcategories[i]\n  \n  for (j in 1:nrow(bgdata)){\n    cattrue<-grepl(categoryis, bgdata$category[j])\n    if (isTRUE(cattrue)) {\n      myval<-1\n    } else {\n      myval<-0\n    }\n    \n    if(j==1){\n      mycol<-myval\n    }\n    else{\n      mycol<-rbind(mycol,myval)\n    }\n  }\n  if(i==1){\n    catcols<-as.data.frame(mycol)\n  }\n  else{\n    catcols2<-as.data.frame(mycol)\n    catcols<-cbind(catcols,catcols2)\n  }\n  \n}\nnames(catcols)<-bgcategories\nbgdata<-cbind(bgdata,catcols)\n\n\n# create a new data frame with the game idsand a list of catergori --------\n\ncatsid <- cbind(catcols,bgdata$game_id)\nlong_cats <- melt(catsid, id=\"bgdata$game_id\")\nlong_cats <- filter(long_cats,value==\"1\")\nnames(long_cats)[1]<-\"game_id\"\n\nvalid_column_names <- make.names(names=names(bgdata), unique=TRUE, allow_ = TRUE)\nnames(bgdata) <- valid_column_names\n\nbgratings<-select(bgdata,game_id,name,year_published,average_rating)\n\nbg_catdata<-left_join(long_cats, bgratings, by = \"game_id\")\n\n# Create graphics ---------------------------------------------------------\n\nexportfile<-\"tidytues2019/tt_mar19/tt_12032019/12032019.png\"\n\na<-ggplot(data = bg_catdata%>%filter(variable==\"Religious\"|variable==\"Political\"),aes(x=year_published,y=average_rating,colour=variable)) +\n  geom_point()+\n  geom_smooth(se=FALSE)+\n  ylab(\"Average Rating\")+\n  theme_bw()\nb<-ggplot(data = bg_catdata%>%filter(variable==\"Word Game\"|variable==\"Number\"),aes(x=year_published,y=average_rating,colour=variable)) +\n  geom_point()+\n  geom_smooth(se=FALSE)+\n  ylab(\"Average Rating\")+\n  theme_bw()\nc<-ggplot(data = bg_catdata%>%filter(variable==\"Pirates\"|variable==\"Science Fiction\"),aes(x=year_published,y=average_rating,colour=variable)) +\n  geom_point()+\n  geom_smooth(se=FALSE)+\n  ylab(\"Average Rating\")+\n  theme_bw()\nd<-ggplot(data = bg_catdata%>%filter(variable==\"Humor\"|variable==\"Horror\"),aes(x=year_published,y=average_rating,colour=variable)) +\n  geom_point()+\n  geom_smooth(se=FALSE)+\n  ylab(\"Average Rating\")+\n  theme_bw()\np<-grid.arrange(a,b,c,d)\n\nggsave(exportfile,p)\n",
+    "created" : 1552407191530.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4009022560",
+    "id" : "CCDEEBF6",
+    "lastKnownWriteTime" : 1552412788,
+    "last_content_update" : 1552412788670,
+    "path" : "//pepper/homestd/My Documents/tidytuesday/tidytues2019/tt_mar19/tt_12032019/tt12032019.R",
+    "project_path" : "tidytues2019/tt_mar19/tt_12032019/tt12032019.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

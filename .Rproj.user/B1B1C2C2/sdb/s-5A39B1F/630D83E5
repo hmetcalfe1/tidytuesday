@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#tidytuesday 08012019\nlibrary(tidyverse)\n\nimportfile<-\"tidytues2019/tt_jan19/tt_08012019/IMDb_Economist_tv_ratings.csv\"\nexportfile<-\"tidytues2019/tt_jan19/tt_08012019/08012019.pdf\"\n  \ntvdata <- read_csv(importfile)\ntvdata\n\nggplot(data = tvdata) +\n  geom_point(mapping = aes(x=date,y=av_rating))\n    \nggsave(exportfile)\n",
+    "created" : 1546966664213.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2744917914",
+    "id" : "630D83E5",
+    "lastKnownWriteTime" : 1546968546,
+    "last_content_update" : 1546968546767,
+    "path" : "~/tidytuesday/tidytues2019/tt_jan19/tt_08012019/tt08012019.R",
+    "project_path" : "tidytues2019/tt_jan19/tt_08012019/tt08012019.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
